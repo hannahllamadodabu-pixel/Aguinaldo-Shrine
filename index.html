@@ -129,7 +129,7 @@ header{
 /* ACTIVE BUTTON */
 
 .active-btn{
-  background:transparent;
+
   height:75px;
   min-width:88px;
 
@@ -505,10 +505,10 @@ margin:auto;
   display:inline-block;
 
   margin-top:30px;
-
+  margin-left:38px;
   background:var(--blaze-orange);
 
-  padding:14px 40px;
+  padding:14px 70px;
 
   border-radius:40px;
 
@@ -787,118 +787,141 @@ footer{
 
 @media(max-width:768px){
 
-  /* HEADER */
+
+  /* =========================
+     HEADER
+  ========================= */
 
   header{
     height:auto;
-    min-height:70px;
 
-    padding:14px 16px;
+    padding:20px 20px 25px;
 
     display:flex;
     flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
-    align-items:stretch;
+    background:
+    radial-gradient(circle at center,
+    var(--dark-purple),
+    #000);
 
-    gap:16px;
+    gap:18px;
   }
 
   /* =========================
-     LOGO AT VERY TOP
+     LOGO
   ========================= */
 
   .logo-center{
-    order:-1;
-
     position:static;
     transform:none;
 
-    width:100%;
-
     display:flex;
     justify-content:center;
-
-    margin-bottom:10px;
+    align-items:center;
   }
 
   .logo-center img{
-    width:120px;
+    width:170px;
+    height:auto;
+    margin-bottom: -25px;
+  }
+
+/* =========================
+   MOBILE NAV LAYOUT
+========================= */
+
+.nav-left,
+.nav-right{
+  width:100%;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:22px;
+}
+
+/* TOP ROW */
+.nav-left{
+  order:2;
+}
+
+/* BOTTOM ROW */
+.nav-right{
+  order:3;
+}
+
+/* LOGO ALWAYS ON TOP */
+.logo-center{
+  order:1;
+
+  position:static;
+  transform:none;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  margin-bottom:10px;
+}
+
+  /* combine rows visually */
+  .nav-left{
+    margin-bottom:-5px;
   }
 
   /* =========================
-     NAVIGATION STACK
+     BUTTON STYLE
   ========================= */
 
-  .nav-left,
-  .nav-right{
+  .active-btn,
+  .nav-item,
+  .about-dropdown-summary,
+  .virtual-dropdown-summary{
+
     width:100%;
+    height:35px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,0.06);
 
     display:flex;
-    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
-    gap:14px;
-  }
+    padding:0 18px;
 
-  .nav-item,
-  .active-btn,
-  .about-dropdown-wrapper,
-  .virtual-dropdown-wrapper{
-    width:100%;
+    box-sizing:border-box;
   }
 
   /* =========================
-     HOME BUTTON
+     TEXT
   ========================= */
 
-  .active-btn{
-    height:auto;
+  .nav-link{
+    font-size:17px;
+    font-weight:700;
 
-    padding:14px 18px;
+    letter-spacing:0.5px;
+  }
 
-    border-radius:12px;
+  /* HOME ACTIVE */
 
-    justify-content:flex-start;
+  .active-btn .nav-link{
+    color:var(--yellow-orange);
   }
 
   /* =========================
-     RESEARCHERS BUTTON
-  ========================= */
-
-  .nav-item{
-    background:rgba(255,255,255,0.05);
-
-    padding:14px 18px;
-
-    border-radius:12px;
-  }
-
-  /* =========================
-     ABOUT + VIRTUAL TOUR
+     DROPDOWN SUMMARY
   ========================= */
 
   .about-dropdown-summary,
   .virtual-dropdown-summary{
-    width:100%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:14px 18px;
-
-    background:rgba(255,255,255,0.05);
-
-    border-radius:12px;
-
-    cursor:pointer;
-  }
-
-  /* =========================
-     NAV TEXT
-  ========================= */
-
-  .nav-link{
-    font-size:13px;
+    justify-content:center;
+    gap:12px;
   }
 
   /* =========================
@@ -906,8 +929,14 @@ footer{
   ========================= */
 
   .dropdown-dot{
-    width:16px;
-    height:16px;
+    width:22px;
+    height:22px;
+  }
+
+  .dropdown-dot::after{
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:8px solid white;
   }
 
   /* =========================
@@ -915,22 +944,21 @@ footer{
   ========================= */
 
   .dropdown-menu{
-    position:static;
+    position:absolute;
+
+    top:75px;
+    left:0;
 
     width:100%;
 
-    margin-top:10px;
+    padding:18px;
 
-    padding:20px 16px;
-
-    border-radius:14px;
-
-    transform:none;
+    border-radius:16px;
   }
 
   .dropdown-column{
     flex-direction:column;
-    gap:18px;
+    gap:14px;
   }
 
   .dropdown-link{
@@ -938,30 +966,23 @@ footer{
   }
 
   /* =========================
-     HERO
+     HERO SPACING
   ========================= */
 
   .hero{
-    padding-left:16px;
-    padding-right:16px;
-    padding-top:320px;
+    padding-top:260px;
   }
 
   .hero h2{
-    font-size:34px;
-    line-height:1.15;
+    font-size:42px;
   }
 
   .hero p{
     font-size:14px;
-    max-width:100%;
+    padding:0 10px;
   }
 
-  .hero-btn{
-    padding:12px 28px;
-    font-size:13px;
-  }
-
+}
   /* =========================
      SECTIONS
   ========================= */
@@ -1052,7 +1073,7 @@ footer{
 
     <div class="active-btn">
 
-      <a href="index.html" class="active-btn nav-link">
+      <a href="index.html" class="nav-link">
        HOME
       </a>
 
