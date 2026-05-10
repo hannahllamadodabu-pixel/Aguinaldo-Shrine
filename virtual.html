@@ -433,128 +433,216 @@ footer{
 
 @media(max-width:768px){
 
+ @media(max-width:768px){
+
+  /* =========================
+     HEADER
+  ========================= */
+
   header{
     height:auto;
-    min-height:70px;
 
-    padding:14px 16px;
+    padding:20px 20px 25px;
 
     display:flex;
     flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
-    align-items:stretch;
+    background:
+    radial-gradient(circle at center,
+    var(--dark-purple),
+    #000);
 
-    gap:16px;
+    gap:18px;
   }
 
-  .logo-center{
-    order:-1;
+  /* =========================
+     LOGO
+  ========================= */
 
+  .logo-center{
     position:static;
     transform:none;
 
-    width:100%;
-
     display:flex;
     justify-content:center;
+    align-items:center;
+
+    order:1;
 
     margin-bottom:10px;
   }
 
   .logo-center img{
-    width:120px;
+    width:170px;
+    height:auto;
+    margin-bottom:-25px;
   }
+
+  /* =========================
+     MOBILE NAV LAYOUT
+  ========================= */
 
   .nav-left,
   .nav-right{
     width:100%;
 
-    display:flex;
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-    gap:14px;
+    gap:22px;
   }
 
-  .nav-item,
+  /* TOP ROW */
+  .nav-left{
+    order:2;
+    margin-bottom:-5px;
+  }
+
+  /* BOTTOM ROW */
+  .nav-right{
+    order:3;
+  }
+
+  /* =========================
+     BUTTON STYLE
+  ========================= */
+
   .active-btn,
-  .about-dropdown-wrapper,
-  .virtual-dropdown-wrapper{
+  .nav-item,
+  .about-dropdown-summary,
+  .virtual-dropdown-summary{
+
     width:100%;
+    height:35px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,0.06);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0 18px;
+
+    box-sizing:border-box;
   }
 
-  .active-btn{
+  /* REMOVE EXTRA BG INSIDE */
+  .virtual-dropdown-summary .active-btn{
+    background:transparent;
+    padding:0;
     height:auto;
-
-    padding:14px 18px;
-
-    border-radius:12px;
-
-    justify-content:flex-start;
+    min-width:auto;
   }
 
-  .nav-item{
-    background:rgba(255,255,255,0.05);
+  /* ACTIVE TEXT */
 
-    padding:14px 18px;
-
-    border-radius:12px;
+  .active-btn .nav-link{
+    color:var(--yellow-orange);
   }
+
+  /* =========================
+     TEXT
+  ========================= */
+
+  .nav-link{
+    font-size:17px;
+    font-weight:700;
+
+    letter-spacing:0.5px;
+  }
+
+  /* =========================
+     DROPDOWN SUMMARY
+  ========================= */
 
   .about-dropdown-summary,
   .virtual-dropdown-summary{
-    width:100%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:14px 18px;
-
-    background:rgba(255,255,255,0.05);
-
-    border-radius:12px;
-
-    cursor:pointer;
+    justify-content:center;
+    gap:12px;
   }
 
-  .nav-link{
-    font-size:13px;
-  }
+  /* =========================
+     DROPDOWN DOT
+  ========================= */
 
   .dropdown-dot{
-    width:16px;
-    height:16px;
+    width:22px;
+    height:22px;
   }
 
+  .dropdown-dot::after{
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:8px solid white;
+
+    border-top:none;
+
+    transform:translate(-50%, -70%);
+  }
+
+  /* =========================
+     DROPDOWN MENU
+  ========================= */
+
   .dropdown-menu{
-    position:static;
+    position:absolute;
+
+    top:75px;
+    left:0;
 
     width:100%;
 
-    margin-top:10px;
+    padding:18px;
 
-    padding:20px 16px;
-
-    border-radius:14px;
-
-    transform:none;
+    border-radius:16px;
   }
 
   .dropdown-column{
     flex-direction:column;
-    gap:18px;
+    gap:14px;
   }
 
   .dropdown-link{
     width:100%;
   }
 
+  /* =========================
+     BREADCRUMB
+  ========================= */
+
   .breadcrumb-section{
-    padding-top:320px;
-    padding-left:16px;
-    padding-right:16px;
+    padding:260px 16px 25px;
   }
 
+  .breadcrumb{
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .breadcrumb a,
+  .breadcrumb p{
+    font-size:14px;
+  }
+
+  /* =========================
+     SKETCHFAB
+  ========================= */
+
+  .viewer-spacing{
+    padding:20px 16px 60px;
+  }
+
+  .sketchfab-container{
+    height:70vh;
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
 
   footer{
     padding:40px 16px;
